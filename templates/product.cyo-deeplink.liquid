@@ -1,0 +1,7 @@
+<script type="text/javascript">
+    {% if product.selected_variant %}
+        window.location = "/pages/customizer?sku={{ product.selected_variant.sku }}";
+    {% else %}
+        window.location = "/pages/customizer?sku={% for variant in product.variants limit:1%}{{variant.sku}}{% endfor%}";
+    {% endif %}
+</script>
